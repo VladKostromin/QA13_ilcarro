@@ -2,6 +2,8 @@ package tests;
 
 import manager.ApplicationManager;
 import org.openqa.selenium.By;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -9,6 +11,7 @@ import org.testng.annotations.BeforeSuite;
 public class TestBase {
 
     ApplicationManager app = new ApplicationManager();
+    Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     @BeforeMethod
     public void preCondition() {
@@ -27,7 +30,8 @@ public class TestBase {
 
 
     @AfterSuite
-    public void tearDown() {
-//        app.stop();
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(4000);
+        app.stop();
     }
 }
