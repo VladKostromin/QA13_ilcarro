@@ -1,0 +1,1 @@
+11962 [Test worker] INFO  tests.TestBase - RegPosTest starts with: models.User@638a4ba7
